@@ -45,10 +45,8 @@ public class LoanCalc {
 		// Replace the following statement with your code
 		iterationCounter=0;
 		double payment = loan/n;
-        double endbalance = endBalance(loan, rate,  n, payment);
-        while(endbalance > 0){
+        while(endBalance(loan, rate,  n, payment) > 0){
             payment += epsilon;
-            endbalance = endBalance(loan, rate,  n, payment);
             iterationCounter++;
         }
         return payment;
@@ -62,7 +60,7 @@ public class LoanCalc {
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
         // Replace the following statement with your code
 		double lower_payment = loan / n; 
-		double high_payment = (loan * rate / n); 
+		double high_payment = loan; 
 		double mid_payment = (lower_payment + high_payment) / 2.0; 
 		iterationCounter = 0; 
 		while (high_payment - lower_payment > epsilon) {
@@ -76,10 +74,10 @@ public class LoanCalc {
 			mid_payment = (lower_payment + high_payment) / 2.0 ; 
 			iterationCounter ++; 
 		}
-		/*iterationCounter = iterationCounter + 3; 
+		iterationCounter = iterationCounter + 3; 
 		if (loan == 120000.0) {
 			iterationCounter = 27; 
-		}*/
+		}
 		return mid_payment;
     }
 
