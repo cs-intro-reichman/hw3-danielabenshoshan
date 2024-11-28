@@ -74,10 +74,6 @@ public class LoanCalc {
 			mid_payment = (lower_payment + high_payment) / 2.0 ; 
 			iterationCounter ++; 
 		}
-		iterationCounter = iterationCounter + 3; 
-		if (loan == 120000.0) {
-			iterationCounter = 27; 
-		}
 		return mid_payment;
     }
 
